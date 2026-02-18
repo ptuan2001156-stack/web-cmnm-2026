@@ -1,0 +1,70 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: black; overflow: hidden; font-family: 'Verdana', sans-serif; }
+
+/* 1. NỀN PHÁO HOA */
+.bg-firework {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url('https://media.giphy.com/media/26tOZ42Mg6pbTUPHW/giphy.gif');
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+}
+.black-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.7);
+    z-index: 1;
+}
+
+canvas { position: absolute; top: 0; left: 0; z-index: 5; }
+
+/* 2. MÀN HÌNH CHỜ */
+#overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.9); z-index: 999;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    color: white; cursor: pointer;
+}
+#overlay h1 { animation: pulse 1s infinite; text-shadow: 0 0 10px gold; }
+@keyframes pulse { 50% { transform: scale(1.1); } }
+
+/* 3. ẢNH BAY */
+#gallery {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 10; display: none; pointer-events: none;
+}
+
+.photo {
+    position: absolute;
+    bottom: -300px;
+    width: 150px;
+    border: 3px solid white;
+    border-radius: 10px;
+    box-shadow: 0 0 15px gold;
+    opacity: 0.9;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0) rotate(0deg); bottom: -300px; opacity: 1; }
+    100% { transform: translateY(-120vh) rotate(20deg); bottom: 120%; opacity: 0; }
+}
+
+/* CẤU HÌNH CHO 16 ẢNH (Dàn đều màn hình) */
+/* p1 - p7 (Ảnh cũ) */
+.p1 { left: 5%; animation: floatUp 12s linear infinite; animation-delay: 0s; width: 160px; }
+.p2 { left: 15%; animation: floatUp 10s linear infinite; animation-delay: 2s; }
+.p3 { left: 25%; animation: floatUp 14s linear infinite; animation-delay: 1s; }
+.p4 { left: 35%; animation: floatUp 11s linear infinite; animation-delay: 3s; }
+.p5 { left: 45%; animation: floatUp 13s linear infinite; animation-delay: 0.5s; width: 170px; }
+.p6 { left: 55%; animation: floatUp 15s linear infinite; animation-delay: 2.5s; }
+.p7 { left: 65%; animation: floatUp 9s linear infinite; animation-delay: 1.5s; }
+
+/* p8 - p16 (Ảnh mới thêm) */
+.p8 { left: 75%; animation: floatUp 12s linear infinite; animation-delay: 0.2s; width: 160px; }
+.p9 { left: 85%; animation: floatUp 11s linear infinite; animation-delay: 3.5s; }
+.p10 { left: 92%; animation: floatUp 14s linear infinite; animation-delay: 1.8s; }
+.p11 { left: 2%; animation: floatUp 16s linear infinite; animation-delay: 4s; width: 140px; }
+.p12 { left: 12%; animation: floatUp 13s linear infinite; animation-delay: 5.5s; }
+.p13 { left: 38%; animation: floatUp 10s linear infinite; animation-delay: 6s; width: 180px; z-index: 15; }
+.p14 { left: 52%; animation: floatUp 15s linear infinite; animation-delay: 4.5s; }
+.p15 { left: 78%; animation: floatUp 12s linear infinite; animation-delay: 5s; }
+.p16 { left: 88%; animation: floatUp 14s linear infinite; animation-delay: 6.5s; }
